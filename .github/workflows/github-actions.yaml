@@ -71,10 +71,6 @@ jobs:
         export TF_VAR_pg_password=${{ secrets.PG_PASSWORD }}
         export TF_VAR_pg_port=${{ secrets.PG_PORT }}
         export TF_VAR_tag=${{ github.sha }}
-
-    - name: Terraform Refresh
-      working-directory: ./tf-ecs
-      run: terraform refresh
       
     - name: Terraform Apply
       working-directory: ./tf-ecs

@@ -61,8 +61,8 @@ jobs:
     - name: Terraform Init
       working-directory: ./tf-ecs
       run: terraform init
-
-    - name: Terraform Variables Exporting  
+      
+    - name: Terraform Apply
       working-directory: ./tf-ecs
       run: |
         export TF_VAR_pg_user=${{ secrets.PG_USER }}
@@ -71,7 +71,4 @@ jobs:
         export TF_VAR_pg_password=${{ secrets.PG_PASSWORD }}
         export TF_VAR_pg_port=${{ secrets.PG_PORT }}
         export TF_VAR_tag=${{ github.sha }}
-      
-    - name: Terraform Apply
-      working-directory: ./tf-ecs
-      run: terraform apply -auto-approve
+        terraform apply -auto-approve

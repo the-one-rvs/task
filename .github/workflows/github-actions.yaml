@@ -62,10 +62,6 @@ jobs:
       working-directory: ./tf-ecs
       run: terraform init
 
-    - name: Terraform Import
-      working-directory: ./tf-ecs
-      run: terraform import aws_ecs_service.quasar-cluster aws_ecs_service.quasar-cluster
-
     - name: Terraform Refresh
       working-directory: ./tf-ecs
       run: terraform refresh
